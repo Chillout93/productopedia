@@ -1,12 +1,9 @@
 import * as React from "react";
-import { header } from "./components/header";
-import { breadcrumbs } from "./components/breadcrumbs";
-import { categories } from "./components/searchAndCategories";
+import { categories, categoryTest } from "./components/categoryDropdown";
 
 export default class App extends React.Component<{}, {}> {
     state = {
-        currentCategory: { name: "Nick" } as Category,
-        sidebarIsHidden: false
+        currentCategory: { name: "Nick" } as Category
     }
 
     render() {
@@ -18,31 +15,12 @@ export default class App extends React.Component<{}, {}> {
 
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-3 d-none d-lg-block">
-                            {categories(null, null)}
-                        </div>
-                        <div className="col-9 d-none d-lg-block">
-                            {breadcrumbs}
-                            {categoryDescription(currentCategory)}
-                        </div>
-
-                        <div className="col-12 d-lg-none collapse collapseExample">
-
-                            {categories(null, null)}
-                        </div>
-                        <div className="col-12 d-lg-none collapse collapseExample show">
-
-                            {breadcrumbs}
-                            {categoryDescription(currentCategory)}
-                        </div>
+                        {fullScreenDisplay(currentCategory)}
+                        {mobileDisplay(currentCategory)}
                     </div>
                 </div>
             </React.Fragment>
         )
-    }
-
-    handleSidebarOnClick = (sidebarIsHidden: boolean) => {
-        this.setState({ sidebarIsHidden });
     }
 
     handleCategoryOnClick = (category: Category) => {
@@ -107,5 +85,51 @@ const tabs = (tabs: TabContent[]) =>
         </nav>
         <div className="tab-content" id="nav-tabContent">
             {tabs.map((x, i) => <div className={`tab-pane fade show ${i === 0 ? "active" : ""}`} id={`nav-${x.id}`} role="tabpanel" aria-labelledby={`nav-${x.id}-tab`}>{productCardDeck}</div>)}
+        </div>
+    </React.Fragment>;
+
+const header =
+    <React.Fragment>
+        <nav className="navbar navbar-expand-md navbar-dark sticky-top bg-dark mb-3">
+            <a className="navbar-brand" href="#">Productopedia</a>
+            <ul className="navbar-nav ml-auto">
+                <a className="nav-item d-lg-none collapse collapseExample" type="button" data-toggle="collapse" data-target=".collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <i className="fa fa-arrow-up"></i>
+                </a>
+                <a className="nav-item d-lg-none collapse collapseExample show" type="button" data-toggle="collapse" data-target=".collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <i className="fa fa-arrow-down"></i>
+                </a>
+            </ul>
+        </nav>
+    </React.Fragment>;
+
+const breadcrumbs =
+    <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+            <li className="breadcrumb-item"><a href="#">Home</a></li>
+            <li className="breadcrumb-item"><a href="#">Library</a></li>
+            <li className="breadcrumb-item active" aria-current="page">Data</li>
+        </ol>
+    </nav>;
+
+const fullScreenDisplay = (currentCategory: Category) =>
+    <React.Fragment>
+        <div className="col-3 d-none d-lg-block">
+            {categories(categoryTest, null)}
+        </div>
+        <div className="col-9 d-none d-lg-block">
+            {breadcrumbs}
+            {categoryDescription(currentCategory)}
+        </div>
+    </React.Fragment>;
+
+const mobileDisplay = (currentCategory: Category) =>
+    <React.Fragment>
+        <div className="col-12 d-lg-none collapse collapseExample">
+            {categories(categoryTest, null)}
+        </div>
+        <div className="col-12 d-lg-none collapse collapseExample show">
+            {breadcrumbs}
+            {categoryDescription(currentCategory)}
         </div>
     </React.Fragment>;
