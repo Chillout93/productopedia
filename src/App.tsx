@@ -2,6 +2,8 @@ import * as React from "react";
 import { categories, categoryTest, filterCategory } from "./components/categoryDropdown";
 import { isSmallDisplay } from "./code/bootstrapSizes";
 
+const noImage = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+
 export default class App extends React.Component<{}, {}> {
     state = {
         currentCategory: { name: "Nick" } as Category,
@@ -130,12 +132,23 @@ const categoryDescription = (category: Category) =>
         </p>
     </React.Fragment>;
 
-const productCard = (level: string, cardType: string, name: string, description: string, price: number) =>
+const productCard = (id: number, level: string, cardType: string, name: string, description: string, price: number, images: string[]) =>
     <div className={`card border-${cardType}`}>
         <div className="card-header">
             <h4>{level}</h4>
         </div>
-        <img className="card-img-top p-2" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" />
+        <div className="card-img-top p-2 carousel slide" id={`carousel-${id}`} data-ride="carousel">
+            <ol className="carousel-indicators">
+                {images.map((x, i) =>  <li style={{ backgroundColor: "grey" }} data-target={`#carousel-${id}`} data-slide-to={i} className={i === 0 ? "active" : ""}></li>)}
+            </ol>
+            <div className="carousel-inner">
+                {images.map((x, i) => 
+                    <div className={`carousel-item ${i === 0 ? "active" : ""}`}>
+                        <img className="d-block w-100" src={x} />
+                    </div>)
+                }
+            </div>
+        </div>
         <div className="card-body">
             <h4 className="card-title">{name}</h4>
             <p className="card-text">{description}</p>
@@ -147,23 +160,31 @@ const productCard = (level: string, cardType: string, name: string, description:
 
 const browsingInternetCardDeck =
     <div className="card-deck">
-        {productCard("Beginner", "success", "Acer Aspire E15", "Test", 345)}
-        {productCard("Intermediate", "warning", "Lenovo Yoga", "test", 700)}
-        {productCard("Advanced", "danger", "Dell XPS 15", "test", 1800)}
+        {productCard(1, "Beginner", "success", "Acer Aspire E15", "Test", 345, ["https://images-na.ssl-images-amazon.com/images/I/61sUFMJ1mCL._SX569_.jpg"])}
+        {productCard(2, "Intermediate", "warning", "Lenovo Yoga", "test", 700, [
+            "https://images-na.ssl-images-amazon.com/images/I/61K23B2u9wL._SX569_.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/616ySSLtzeL._SX569_.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/51B1VeBfnvL._SX569_.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/51H9Eu3FOKL._SX569_.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/51h%2BPUTq6EL._SX569_.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/61Q8hIjnFqL._SX569_.jpg",
+            "https://images-na.ssl-images-amazon.com/images/I/51KLNyluJZL._SX569_.jpg"
+        ])}
+        {productCard(3, "Advanced", "danger", "Dell XPS 15", "test", 1800, [noImage])}
     </div>;
 
 const forBusinessCardDeck =
     <div className="card-deck">
-        {productCard("Beginner", "success", "Lenovo Thinkpad T460", "test", 300)}
-        {productCard("Intermediate", "warning", "Lenovo Thinkpad L480", "test", 800)}
-        {productCard("Advanced", "danger", "Lenovo Thinkpad X1 Carbon", "test", 1500)}
+        {productCard(4, "Beginner", "success", "Lenovo Thinkpad T460", "test", 300, [noImage])}
+        {productCard(5, "Intermediate", "warning", "Lenovo Thinkpad L480", "test", 800, [noImage])}
+        {productCard(6, "Advanced", "danger", "Lenovo Thinkpad X1 Carbon", "test", 1500, [noImage])}
     </div>;
 
 const gamingCardDeck =
     <div className="card-deck">
-        {productCard("Beginner", "success", "Acer Aspire 5", "test", 500)}
-        {productCard("Intermediate", "warning", "Dell G7 15", "null", 1500)}
-        {productCard("Advanced", "danger", "Sager NP8954", "test", 2500)}
+        {productCard(7, "Beginner", "success", "Acer Aspire 5", "test", 500, [noImage])}
+        {productCard(8, "Intermediate", "warning", "Dell G7 15", "null", 1500, [noImage])}
+        {productCard(9, "Advanced", "danger", "Sager NP8954", "test", 2500, [noImage])}
     </div>;
 
 type TabContent = {
