@@ -19,7 +19,7 @@ export default class App extends React.Component<{}, {}> {
 
     componentWillUnmount() {
         window.removeEventListener('resize', () => this.setState({ isSmallDisplayResult: isSmallDisplay(window) }));
-      }
+    }
 
     render() {
         const { currentCategory, isNavExpanded, isSmallDisplayResult, categories, searchString } = this.state;
@@ -34,8 +34,8 @@ export default class App extends React.Component<{}, {}> {
 
                 <div className="container-fluid">
                     <div className="row">
-                        {isSmallDisplayResult 
-                            ? mobileDisplay(currentCategory, isNavExpanded, filteredCategories, this.handleOnCategorySearch,this.handleParentCategoryOnClick) 
+                        {isSmallDisplayResult
+                            ? mobileDisplay(currentCategory, isNavExpanded, filteredCategories, this.handleOnCategorySearch, this.handleParentCategoryOnClick)
                             : fullScreenDisplay(currentCategory, filteredCategories, this.handleOnCategorySearch, this.handleParentCategoryOnClick)}
                     </div>
                 </div>
@@ -48,9 +48,7 @@ export default class App extends React.Component<{}, {}> {
     }
 
     handleParentCategoryOnClick = (category: Category) => {
-        
         category.isVisible = !category.isVisible;
-        console.log(category);
         const categoriesUpdate = this.state.categories.map(x => this.test(category, x));
 
         this.setState({ categories: categoriesUpdate });
@@ -105,22 +103,22 @@ const categoryDescription = (category: Category) =>
 
         <h4 className="mt-4">Performance</h4>
         <p>
-            <strong>CPU:</strong>  Nowadays you will mostly see Intel CPUs in the format iX-Xxxx, the first X will be a 3, 5, 7 or 9 with the higher number being a stronger 
-            processor. The second X determines the generation, so an i7-8110 is an i7 processor from the 8th generation. The generation includes architecture improvements over time <source/>
+            <strong>CPU:</strong>  Nowadays you will mostly see Intel CPUs in the format iX-Xxxx, the first X will be a 3, 5, 7 or 9 with the higher number being a stronger
+            processor. The second X determines the generation, so an i7-8110 is an i7 processor from the 8th generation. The generation includes architecture improvements over time <source />
             you should expect a higher generation i5 to outperform a lower generation i7 for example. The best way to compare processors is through benchmarks <a href="https://www.cpubenchmark.net/laptop.html">here</a>.
         </p>
         <p>
             <strong>RAM: </strong> RAM is quite cheap and you should be looking for at least 8GB even for lower end laptops, 16GB for more mid-level. The more information your computer can hold in ram
-            over storage the faster it can access the information, so ideally for all the applications you are using at one time it should be able to hold all that in memory, or 
+            over storage the faster it can access the information, so ideally for all the applications you are using at one time it should be able to hold all that in memory, or
             you should expect severe performance degredation.
         </p>
         <p>
             <strong>Storage: </strong> Try and avoid hard disks where possible, look for laptops with "SSD" over "Hard Disk" as these will allow your computer to turn on
-            faster and overall create the sense that your laptop is a lot faster than it really is. If you require a lot of storage which you don't access frequently then 
+            faster and overall create the sense that your laptop is a lot faster than it really is. If you require a lot of storage which you don't access frequently then
             we recommend just getting external hard drives to hold photos or videos.
         </p>
         <p>
-            <strong>Graphics Card: </strong> You only need a dedicated graphics card if you plan to do gaming otherwise it will be encorporated onto the motherboard, try and 
+            <strong>Graphics Card: </strong> You only need a dedicated graphics card if you plan to do gaming otherwise it will be encorporated onto the motherboard, try and
             avoid laptops with dedicated graphics cards unless you plan to do gaming, in which case you should look at benchmarks to determine the best forming ones.
         </p>
         <h4 className="mt-4">Portability</h4>
@@ -139,10 +137,10 @@ const productCard = (id: number, level: string, cardType: string, name: string, 
         </div>
         <div className="card-img-top p-2 carousel slide" id={`carousel-${id}`} data-ride="carousel">
             <ol className="carousel-indicators">
-                {images.map((x, i) =>  <li style={{ backgroundColor: "grey" }} data-target={`#carousel-${id}`} data-slide-to={i} className={i === 0 ? "active" : ""}></li>)}
+                {images.map((x, i) => <li style={{ backgroundColor: "grey" }} data-target={`#carousel-${id}`} data-slide-to={i} className={i === 0 ? "active" : ""}></li>)}
             </ol>
             <div className="carousel-inner">
-                {images.map((x, i) => 
+                {images.map((x, i) =>
                     <div className={`carousel-item ${i === 0 ? "active" : ""}`}>
                         <img className="d-block w-100" src={x} />
                     </div>)
@@ -239,10 +237,10 @@ const fullScreenDisplay = (currentCategory: Category, filteredCategories: Catego
 
 const mobileDisplay = (currentCategory: Category, isNavExpanded: boolean, filteredCategories: Category[], handleOnCategorySearch: Function, handleParentCategoryOnClick: Function) =>
     <React.Fragment>
-        <div className={`col-12 collapse ${isNavExpanded ? "show" : "" }`}>
+        <div className={`col-12 collapse ${isNavExpanded ? "show" : ""}`}>
             {categories(filteredCategories, null, handleOnCategorySearch, handleParentCategoryOnClick)}
         </div>
-        <div className={`col-12 collapse ${isNavExpanded ? "" : "show" }`}>
+        <div className={`col-12 collapse ${isNavExpanded ? "" : "show"}`}>
             {breadcrumbs}
             {categoryDescription(currentCategory)}
         </div>
