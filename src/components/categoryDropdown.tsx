@@ -1,4 +1,5 @@
 import React from "react";
+import { Category } from "../code/models";
 
 export const categoryTest: Category[] = [
     { id: 1, name: "test1", children: null, products: null, isVisible: false },
@@ -42,7 +43,7 @@ export const categoryTest: Category[] = [
     }
 ];
 
-export const categories = (categories: Category[], handleOnCategoryClick: Function, handleOnCategorySearch: Function, handleParentCategoryOnClick: Function) =>
+export const categoriesSidebar = (categories: Category[], handleOnCategoryClick: Function, handleOnCategorySearch: Function, handleParentCategoryOnClick: Function) =>
     <React.Fragment>
         <input type="text" className="form-control mb-3" placeholder="I want..." onKeyUp={(e) => handleOnCategorySearch(e.currentTarget.value)} />
         <ul className="list-group">
@@ -57,8 +58,11 @@ export const filterCategory = (category: Category, searchTerm: string) : boolean
     return category.name.indexOf(searchTerm) !== -1 ||  (category.children && category.children.length > 0);
 }
 
-export const updateCategory = (category: Category, ) : void => {
-    category.isVisible
+export const updateCategory = (categoryToUpdate: Category, currentCategory: Category) => {
+    if (currentCategory.children && currentCategory.children.length > 1)
+        currentCategory.children = currentCategory.children.map(x => updateCategory(categoryToUpdate, x));
+
+    return categoryToUpdate.id === currentCategory.id ? categoryToUpdate : currentCategory;
 }
 
 const renderCategory = (category: Category, index: number, handleParentCategoryOnClick: Function) =>
