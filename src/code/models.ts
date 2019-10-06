@@ -40,11 +40,12 @@ export type Product = {
 
 type AffiliateLink = {
     url: string;
+    name: string;
     price: number;
 }
 
 type ProductLevel = {
-    level: Level;
+    level: number;
     price: string;
 };
 

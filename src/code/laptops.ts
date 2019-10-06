@@ -28,7 +28,7 @@ export const laptops: CategoryDescription = {
                     id: 1,
                     name: "Lenovo Ideapad 120S",
                     level: {
-                        level: "Beginner",
+                        level: 1,
                         price: "200-400",
                     },
                     summary: "Ideal for kids or grandparents who just want to occasionally browse the internet, and do some light word editing. All you are looking for here is best bang for buck, if you are using this everyday we suggest going up a level.",
@@ -56,10 +56,353 @@ export const laptops: CategoryDescription = {
                     ],
                     affiliateLinks: [{
                         price: 500,
-                        url: ""
+                        url: "amazon.co.uk",
+                        name: "Amazon"
                     }],
                     images: [
-                        ""
+                        "https://images-na.ssl-images-amazon.com/images/I/71uxZTn-WpL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/71qQH57K4tL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/61JuMZD2FyL._SX569_.jpg"
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Lenovo Ideapad 120S",
+                    level: {
+                        level: 2,
+                        price: "400-800",
+                    },
+                    summary: "Ideal for kids or grandparents who just want to occasionally browse the internet, and do some light word editing. All you are looking for here is best bang for buck, if you are using this everyday we suggest going up a level.",
+                    pros: [
+                        "Good design",
+                        "Display hinge goes 180 degrees, means less prone to failure",
+                        "USB-C ports",
+                        "Long battery life and good specs for the money"
+                    ],
+                    cons: [
+                        "Poor webcam",
+                        "Not the greatest screen"
+                    ],
+                    alternatives: [
+                        {
+                            name: "CHUWI LapBook 14.1",
+                            summary: "Almost identical to the ",
+                            pros: [
+                                ""
+                            ],
+                            cons: [
+                                ""
+                            ]
+                        }
+                    ],
+                    affiliateLinks: [{
+                        price: 500,
+                        url: "amazon.co.uk",
+                        name: "Amazon"
+                    }],
+                    images: [
+                        "https://images-na.ssl-images-amazon.com/images/I/71uxZTn-WpL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/71qQH57K4tL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/61JuMZD2FyL._SX569_.jpg"
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "Lenovo Ideapad 120S",
+                    level: {
+                        level: 3,
+                        price: "1000-3000",
+                    },
+                    summary: "Ideal for kids or grandparents who just want to occasionally browse the internet, and do some light word editing. All you are looking for here is best bang for buck, if you are using this everyday we suggest going up a level.",
+                    pros: [
+                        "Good design",
+                        "Display hinge goes 180 degrees, means less prone to failure",
+                        "USB-C ports",
+                        "Long battery life and good specs for the money"
+                    ],
+                    cons: [
+                        "Poor webcam",
+                        "Not the greatest screen"
+                    ],
+                    alternatives: [
+                        {
+                            name: "CHUWI LapBook 14.1",
+                            summary: "Almost identical to the ",
+                            pros: [
+                                ""
+                            ],
+                            cons: [
+                                ""
+                            ]
+                        }
+                    ],
+                    affiliateLinks: [{
+                        price: 500,
+                        url: "amazon.co.uk",
+                        name: "Amazon"
+                    }],
+                    images: [
+                        "https://images-na.ssl-images-amazon.com/images/I/71uxZTn-WpL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/71qQH57K4tL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/61JuMZD2FyL._SX569_.jpg"
+                    ]
+                }
+            ]
+        },
+        {
+            id: 2,
+            name: "For Business",
+            products: [
+                {
+                    id: 1,
+                    name: "Lenovo Ideapad 120S",
+                    level: {
+                        level: 1,
+                        price: "200-400",
+                    },
+                    summary: "Ideal for kids or grandparents who just want to occasionally browse the internet, and do some light word editing. All you are looking for here is best bang for buck, if you are using this everyday we suggest going up a level.",
+                    pros: [
+                        "Good design",
+                        "Display hinge goes 180 degrees, means less prone to failure",
+                        "USB-C ports",
+                        "Long battery life and good specs for the money"
+                    ],
+                    cons: [
+                        "Poor webcam",
+                        "Not the greatest screen"
+                    ],
+                    alternatives: [
+                        {
+                            name: "CHUWI LapBook 14.1",
+                            summary: "Almost identical to the ",
+                            pros: [
+                                ""
+                            ],
+                            cons: [
+                                ""
+                            ]
+                        }
+                    ],
+                    affiliateLinks: [{
+                        price: 500,
+                        url: "amazon.co.uk",
+                        name: "Amazon"
+                    }],
+                    images: [
+                        "https://images-na.ssl-images-amazon.com/images/I/71uxZTn-WpL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/71qQH57K4tL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/61JuMZD2FyL._SX569_.jpg"
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Lenovo Ideapad 120S",
+                    level: {
+                        level: 2,
+                        price: "200-400",
+                    },
+                    summary: "Ideal for kids or grandparents who just want to occasionally browse the internet, and do some light word editing. All you are looking for here is best bang for buck, if you are using this everyday we suggest going up a level.",
+                    pros: [
+                        "Good design",
+                        "Display hinge goes 180 degrees, means less prone to failure",
+                        "USB-C ports",
+                        "Long battery life and good specs for the money"
+                    ],
+                    cons: [
+                        "Poor webcam",
+                        "Not the greatest screen"
+                    ],
+                    alternatives: [
+                        {
+                            name: "CHUWI LapBook 14.1",
+                            summary: "Almost identical to the ",
+                            pros: [
+                                ""
+                            ],
+                            cons: [
+                                ""
+                            ]
+                        }
+                    ],
+                    affiliateLinks: [{
+                        price: 500,
+                        url: "amazon.co.uk",
+                        name: "Amazon"
+                    }],
+                    images: [
+                        "https://images-na.ssl-images-amazon.com/images/I/71uxZTn-WpL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/71qQH57K4tL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/61JuMZD2FyL._SX569_.jpg"
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "Lenovo Ideapad 120S",
+                    level: {
+                        level: 3,
+                        price: "200-400",
+                    },
+                    summary: "Ideal for kids or grandparents who just want to occasionally browse the internet, and do some light word editing. All you are looking for here is best bang for buck, if you are using this everyday we suggest going up a level.",
+                    pros: [
+                        "Good design",
+                        "Display hinge goes 180 degrees, means less prone to failure",
+                        "USB-C ports",
+                        "Long battery life and good specs for the money"
+                    ],
+                    cons: [
+                        "Poor webcam",
+                        "Not the greatest screen"
+                    ],
+                    alternatives: [
+                        {
+                            name: "CHUWI LapBook 14.1",
+                            summary: "Almost identical to the ",
+                            pros: [
+                                ""
+                            ],
+                            cons: [
+                                ""
+                            ]
+                        }
+                    ],
+                    affiliateLinks: [{
+                        price: 500,
+                        url: "amazon.co.uk",
+                        name: "Amazon"
+                    }],
+                    images: [
+                        "https://images-na.ssl-images-amazon.com/images/I/71uxZTn-WpL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/71qQH57K4tL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/61JuMZD2FyL._SX569_.jpg"
+                    ]
+                },
+                {
+                    id: 4,
+                    name: "Lenovo Ideapad 120S",
+                    level: {
+                        level: 4,
+                        price: "200-400",
+                    },
+                    summary: "Ideal for kids or grandparents who just want to occasionally browse the internet, and do some light word editing. All you are looking for here is best bang for buck, if you are using this everyday we suggest going up a level.",
+                    pros: [
+                        "Good design",
+                        "Display hinge goes 180 degrees, means less prone to failure",
+                        "USB-C ports",
+                        "Long battery life and good specs for the money"
+                    ],
+                    cons: [
+                        "Poor webcam",
+                        "Not the greatest screen"
+                    ],
+                    alternatives: [
+                        {
+                            name: "CHUWI LapBook 14.1",
+                            summary: "Almost identical to the ",
+                            pros: [
+                                ""
+                            ],
+                            cons: [
+                                ""
+                            ]
+                        }
+                    ],
+                    affiliateLinks: [{
+                        price: 500,
+                        url: "amazon.co.uk",
+                        name: "Amazon"
+                    }],
+                    images: [
+                        "https://images-na.ssl-images-amazon.com/images/I/71uxZTn-WpL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/71qQH57K4tL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/61JuMZD2FyL._SX569_.jpg"
+                    ]
+                },
+                {
+                    id: 5,
+                    name: "Lenovo Ideapad 120S",
+                    level: {
+                        level: 5,
+                        price: "200-400",
+                    },
+                    summary: "Ideal for kids or grandparents who just want to occasionally browse the internet, and do some light word editing. All you are looking for here is best bang for buck, if you are using this everyday we suggest going up a level.",
+                    pros: [
+                        "Good design",
+                        "Display hinge goes 180 degrees, means less prone to failure",
+                        "USB-C ports",
+                        "Long battery life and good specs for the money"
+                    ],
+                    cons: [
+                        "Poor webcam",
+                        "Not the greatest screen"
+                    ],
+                    alternatives: [
+                        {
+                            name: "CHUWI LapBook 14.1",
+                            summary: "Almost identical to the ",
+                            pros: [
+                                ""
+                            ],
+                            cons: [
+                                ""
+                            ]
+                        }
+                    ],
+                    affiliateLinks: [{
+                        price: 500,
+                        url: "amazon.co.uk",
+                        name: "Amazon"
+                    }],
+                    images: [
+                        "https://images-na.ssl-images-amazon.com/images/I/71uxZTn-WpL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/71qQH57K4tL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/61JuMZD2FyL._SX569_.jpg"
+                    ]
+                }
+            ]
+        },
+        {
+            id: 3,
+            name: "For Gaming",
+            products: [
+                {
+                    id: 1,
+                    name: "Lenovo Ideapad 120S",
+                    level: {
+                        level: 1,
+                        price: "200-400",
+                    },
+                    summary: "Ideal for kids or grandparents who just want to occasionally browse the internet, and do some light word editing. All you are looking for here is best bang for buck, if you are using this everyday we suggest going up a level.",
+                    pros: [
+                        "Good design",
+                        "Display hinge goes 180 degrees, means less prone to failure",
+                        "USB-C ports",
+                        "Long battery life and good specs for the money"
+                    ],
+                    cons: [
+                        "Poor webcam",
+                        "Not the greatest screen"
+                    ],
+                    alternatives: [
+                        {
+                            name: "CHUWI LapBook 14.1",
+                            summary: "Almost identical to the ",
+                            pros: [
+                                ""
+                            ],
+                            cons: [
+                                ""
+                            ]
+                        }
+                    ],
+                    affiliateLinks: [{
+                        price: 500,
+                        url: "amazon.co.uk",
+                        name: "Amazon"
+                    }],
+                    images: [
+                        "https://images-na.ssl-images-amazon.com/images/I/71uxZTn-WpL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/71qQH57K4tL._SX569_.jpg",
+                        "https://images-na.ssl-images-amazon.com/images/I/61JuMZD2FyL._SX569_.jpg"
                     ]
                 }
             ]
