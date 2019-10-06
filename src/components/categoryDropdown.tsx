@@ -10,13 +10,13 @@ export const categoryTest: Category[] = [
                     { id: 4, name: "test2.1.1", children: null, products: null, isVisible: false },
                     { id: 5, name: "test2.1.2", children: null, products: null, isVisible: false },
                     { id: 6, name: "test2.1.3", children: null, products: null, isVisible: false }
-                ], 
+                ],
                 products: null,
                 isVisible: false
             },
             { id: 7, name: "test2.2", children: null, products: null, isVisible: false },
             { id: 8, name: "test2.3", children: null, products: null, isVisible: false },
-        ], 
+        ],
         products: null,
         isVisible: false
     },
@@ -31,13 +31,13 @@ export const categoryTest: Category[] = [
                     { id: 13, name: "test2.1.1", children: null, products: null, isVisible: false },
                     { id: 14, name: "test2.1.2", children: null, products: null, isVisible: false },
                     { id: 15, name: "test2.1.3", children: null, products: null, isVisible: false }
-                ], 
+                ],
                 products: null,
                 isVisible: false
             },
             { id: 16, name: "test2.2", children: null, products: null, isVisible: false },
             { id: 17, name: "test2.3", children: null, products: null, isVisible: false },
-        ], 
+        ],
         products: null,
         isVisible: false
     }
@@ -51,11 +51,11 @@ export const categoriesSidebar = (categories: Category[], handleOnCategoryClick:
         </ul>
     </React.Fragment>;
 
-export const filterCategory = (category: Category, searchTerm: string) : boolean => {
-    if (category.children && category.children.length > 0) 
+export const filterCategory = (category: Category, searchTerm: string): boolean => {
+    if (category.children && category.children.length > 0)
         category.children = category.children.filter(x => filterCategory(x, searchTerm));
 
-    return category.name.indexOf(searchTerm) !== -1 ||  (category.children && category.children.length > 0);
+    return category.name.indexOf(searchTerm) !== -1 || (category.children && category.children.length > 0);
 }
 
 export const updateCategory = (categoryToUpdate: Category, currentCategory: Category) => {
@@ -67,7 +67,7 @@ export const updateCategory = (categoryToUpdate: Category, currentCategory: Cate
 
 const renderCategory = (category: Category, index: number, handleParentCategoryOnClick: Function) =>
     <React.Fragment>
-        <li className="list-group-item" onClick={() => handleParentCategoryOnClick(category)} style={{ cursor: "pointer", fontWeight: category.children && category.children.length > 0 ? "bold" : "normal"}}><span style={{ paddingLeft: 20 * index }}></span>{category.children&& category.children.length>0 ? <i className={`fa fa-chevron-${category.isVisible ? "down" : "right" } mr-1`}></i> : null}{category.name}</li>
+        <li className="list-group-item" onClick={() => handleParentCategoryOnClick(category)} style={{ cursor: "pointer", fontWeight: category.children && category.children.length > 0 ? "bold" : "normal" }}><span style={{ paddingLeft: 20 * index }}></span>{category.children && category.children.length > 0 ? <i className={`fa fa-chevron-${category.isVisible ? "down" : "right"} mr-1`}></i> : null}{category.name}</li>
         {category.children !== null && category.children.length > 0 && category.isVisible
             ? <ul className="list-group">
                 {category.children.map(x => renderCategory(x, index + 1, handleParentCategoryOnClick))}
