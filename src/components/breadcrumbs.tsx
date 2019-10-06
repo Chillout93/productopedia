@@ -1,4 +1,6 @@
-const breadcrumbs =
+import * as React from "react";
+
+export const breadcrumbs =
     <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
             <li className="breadcrumb-item"><a href="#">Technology</a></li>
