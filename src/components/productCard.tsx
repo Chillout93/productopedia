@@ -1,11 +1,11 @@
-import { Product } from "../code/models";
+import { Product, ComparisonMetric } from "../code/models";
 import * as React from "react";
 import { modal } from "./modal";
 
-export const productCard = (product: Product) =>
+export const productCard = (product: Product, comparisonMetrics: ComparisonMetric[]) =>
     <React.Fragment>
         <div className={`card border-${product.level.level}`} >
-            <div className="card-img-top p-2 carousel slide" id={`carousel-${product.id}`} data-ride="carousel">
+            <div className="card-img-top p-2 carousel slide" id={`carousel-${product.id}`} data-ride="carousel" data-interval="false">
                 <ol className="carousel-indicators">
                     {product.images.map((x, i) => <li style={{ backgroundColor: "grey" }} data-target={`#carousel-${product.id}`} data-slide-to={i} className={i === 0 ? "active" : ""}></li>)}
                 </ol>
@@ -25,9 +25,9 @@ export const productCard = (product: Product) =>
             <ul className="list-group list-group-flush">
                 {product.pros.map(x => <li className="list-group-item text-info">{x}</li>)}
                 {product.cons.map(x => <li className="list-group-item text-danger">{x}</li>)}
-                <li style={{ backgroundColor: "rgba(0,0,0,0.03)" }} className="list-group-item"><a data-toggle="modal" data-target="#exampleModal" href="">See Reviewed Alternatives</a></li>
-                {product.affiliateLinks.map(x => <li style={{ backgroundColor: "rgba(0,0,0,0.03)", border: "0px solid rgba(0,0,0,0.03)" }} className="list-group-item"><a href="">Buy Now</a><span style={{ float: "right" }} className="text-muted text-right font-italic">{x.name} £{x.price}</span></li>)}
+                <li style={{ backgroundColor: "rgba(0,0,0,0.03)" }} className="list-group-item"><a data-toggle="modal" data-target="#exampleModal" href="">Tech Specs & Alternatives</a></li>
+                {product.affiliateLinks.map(x => <li style={{ backgroundColor: "rgba(0,0,0,0.03)", border: "0px solid rgba(0,0,0,0.03)" }} className="list-group-item"><a href={x.url}>Buy Now</a><span style={{ float: "right" }} className="text-muted text-right font-italic">{x.name} £{x.price}</span></li>)}
             </ul>
         </div>
-        {modal(product)}
+        {modal(product, comparisonMetrics)}
     </React.Fragment>;

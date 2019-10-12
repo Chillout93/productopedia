@@ -12,7 +12,7 @@ export const categoryDescription = (category: CategoryDescription) =>
 
         <h2 className="mb-4">Which {category.name} to buy?</h2>
 
-        {useCaseTabs(category.useCases)}
+        {useCaseTabs(category.useCases, category.comparisonMetrics)}
 
         <h2 className="mt-4">What makes good {category.name}?</h2>
         <p dangerouslySetInnerHTML={{ __html: category.whatMakesItGood }}></p>

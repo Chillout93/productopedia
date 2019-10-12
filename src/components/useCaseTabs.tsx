@@ -1,8 +1,8 @@
-import { UseCase } from "../code/models";
+import { UseCase, ComparisonMetric } from "../code/models";
 import * as React from "react";
 import { productDeck } from "./productDeck";
 
-export const useCaseTabs = (tabs: UseCase[]) =>
+export const useCaseTabs = (tabs: UseCase[], comparisonMetrics: ComparisonMetric[]) =>
     <React.Fragment>
         <nav className="mb-4">
             <div className="nav nav-tabs" id="nav-tab" role="tablist">
@@ -10,6 +10,6 @@ export const useCaseTabs = (tabs: UseCase[]) =>
             </div>
         </nav>
         <div className="tab-content" id="nav-tabContent">
-            {tabs.map((x, i) => <div className={`tab-pane fade show ${i === 0 ? "active" : ""}`} id={`nav-${x.id}`} role="tabpanel" aria-labelledby={`nav-${x.id}-tab`}>{productDeck(x.products)}</div>)}
+            {tabs.map((x, i) => <div className={`tab-pane fade show ${i === 0 ? "active" : ""}`} id={`nav-${x.id}`} role="tabpanel" aria-labelledby={`nav-${x.id}-tab`}>{productDeck(x.products, comparisonMetrics)}</div>)}
         </div>
     </React.Fragment>;

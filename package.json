@@ -1,29 +1,32 @@
 {
-  "name": "tictactoe3",
+  "name": "productpedia",
   "version": "1.0.0",
-  "description": "",
+  "description": "productpedia",
+  "repository": {},
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "build": "webpack --mode production",
-    "start": "webpack --watch",
-    "startserver": "webpack-dev-server --open"
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.3",
     "@types/jest": "^24.0.18",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.0",
     "css-loader": "^3.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",

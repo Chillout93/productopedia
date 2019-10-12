@@ -13,12 +13,25 @@ export type CategoryDescription = {
     useCases: UseCase[];
     whatMakesItGood: string;
     metrics: Metric[];
+    comparisonMetrics: ComparisonMetric[];
+
 };
 
 export type Metric = {
     name: string;
     description: string;
 };
+
+export type ComparisonMetric = {
+    code: string;
+    name: string;
+};
+
+export type ProductComparisonMetric = {
+    comparisonCode: string;
+    productCode: number;
+    value: string;
+}
 
 export type UseCase = {
     id: number;
@@ -35,6 +48,7 @@ export type Product = {
     cons: string[];
     affiliateLinks: AffiliateLink[];
     images: string[];
+    comparisonAttributes: ProductComparisonMetric[];
     alternatives: any[];
 };
 
